@@ -1,10 +1,12 @@
 import React, { Fragment } from 'react'
 import MoreButton from '../components/MoreButton'
 import Sushi from '../components/Sushi'
+import SushiForm from '../components/SushiForm.js'
 
 const SushiContainer = (props) => {
   return (
     <Fragment>
+      <SushiForm addFunds={props.addFunds}/>
       <div className="belt">
         {
           props.allSushi

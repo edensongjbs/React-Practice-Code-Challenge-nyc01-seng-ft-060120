@@ -17,6 +17,11 @@ class App extends Component {
     .then( json => this.setState({allSushi: json}))
   }
 
+  addFunds = (amount) => {
+    const newAmount = this.state.sushiBudget+amount
+    this.setState({sushiBudget:newAmount})
+  }
+
   emptyPlates = () => {
     // console.log(this.state.allSushi)
     return this.state.allSushi.filter(sushi => sushi.eaten)
@@ -42,7 +47,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <SushiContainer eatSushi={this.eatSushi} moreSushi={this.moreSushi} sushiIndex={this.state.sushiIndex} allSushi={this.state.allSushi} />
+        <SushiContainer addFunds={this.addFunds} eatSushi={this.eatSushi} moreSushi={this.moreSushi} sushiIndex={this.state.sushiIndex} allSushi={this.state.allSushi} />
         <Table sushiBudget={this.state.sushiBudget} emptyPlates={this.emptyPlates()} />
       </div>
     );
